@@ -11,7 +11,12 @@
 	"image": "aochengwangmsft/teams-toolkit-bot:v2",
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [3000],
+	"forwardPorts": [53000],
+
+	// Set feature flag to use TeamsFx v3
+	"remoteEnv": {
+		"TEAMSFX_V3": "true"
+	},
 
 	"remoteUser": "docker",
 	"extensions": [

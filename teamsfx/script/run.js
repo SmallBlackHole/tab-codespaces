@@ -15,7 +15,7 @@ async function run() {
 
   // set up environment variables required by teamsfx
   process.env.BROWSER = "none";
-  process.env.HTTPS = true;
+  process.env.HTTPS = false;
   process.env.PORT = 53000;
   process.env.SSL_CRT_FILE = envs.SSL_CRT_FILE;
   process.env.SSL_KEY_FILE = envs.SSL_KEY_FILE;

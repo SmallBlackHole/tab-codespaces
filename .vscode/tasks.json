@@ -5,9 +5,11 @@
             "label": "Start Teams App Locally",
             "dependsOn": [
                 "Validate prerequisites",
+                "Setup port forwarding",
                 "Create resources",
                 "Install tools and Build project",
-                "Start services"
+                "Start services",
+                "Open Teams Web Client"
             ],
             "dependsOrder": "sequence"
         },
@@ -45,6 +47,12 @@
             }
         },
         {
+            "label": "Setup port forwarding",
+            "type": "shell",
+            // Currently hardcoded to 53000. It is possible to dynamically retrieve it from config file in VSC extension
+            "command": "gh codespace ports visibility 53000:public -c $CODESPACE_NAME"
+        },
+        {
             "label": "Start services",
             "dependsOn": [
                 "Start frontend"
@@ -70,6 +78,14 @@
                     "beginsPattern": ".*",
                     "endsPattern": "Compiled|Failed|compiled|failed"
                 }
+            }
+        },
+        {
+            "type": "shell",
+            "label": "Open Teams Web Client",
+            "command": "node ${workspaceFolder}/teamsfx/script/open-browser.js . teamsfx/.env.local",
+            "options": {
+                "cwd": "${workspaceFolder}"
             }
         }
     ]
