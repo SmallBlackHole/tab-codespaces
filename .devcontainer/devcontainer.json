@@ -12,14 +12,17 @@
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [53000],
-
-	// Set feature flag to use TeamsFx v3
-	"remoteEnv": {
-		"TEAMSFX_PREVIEW": "true"
+	"portsAttributes": {
+		"53000": {
+			"label": "tab",
+			"protocol": "https"
+		}
 	},
 
 	"remoteUser": "docker",
 	"extensions": [
-		"TeamsDevApp.ms-teams-vscode-extension"
+		//"TeamsDevApp.ms-teams-vscode-extension"
+		// Will use the official extension when toolkit v5 release to marketplace
+		"/workspaces/tab-codespaces/.devcontainer/ms-teams-vscode-extension-4.99.2023020200.vsix"
 	]
 }

@@ -25,8 +25,8 @@ configureApp:
   - uses: file/updateEnv # Generate env to .env file
     with:
       envs:
-        TAB_DOMAIN: localhost:53000
-        TAB_ENDPOINT: https://localhost:53000
+        TAB_DOMAIN: ${{CODESPACE_NAME}}-53000.${{GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}}
+        TAB_ENDPOINT: https://${{CODESPACE_NAME}}-53000.${{GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}}
 
   - uses: aadApp/update # Apply the AAD manifest to an existing AAD app. Will use the object id in manifest file to determine which AAD app to update.
     with:

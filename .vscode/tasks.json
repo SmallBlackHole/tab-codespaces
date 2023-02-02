@@ -12,6 +12,18 @@
             "dependsOrder": "sequence"
         },
         {
+            "label": "Start Teams App in Codespaces",
+            "dependsOn": [
+                "Validate prerequisites",
+                "Setup port forwarding",
+                "Create resources",
+                "Build project",
+                "Start application",
+                "Open Teams Web Client"
+            ],
+            "dependsOrder": "sequence"
+        },
+        {
             "label": "Validate prerequisites",
             "type": "teamsfx",
             "command": "debug-check-prerequisites",
@@ -70,6 +82,19 @@
                     "beginsPattern": ".*",
                     "endsPattern": "Compiled|Failed|compiled|failed"
                 }
+            }
+        },
+        {
+            "label": "Setup port forwarding",
+            "type": "shell",
+            "command": "gh codespace ports visibility 53000:public -c $CODESPACE_NAME"
+        },
+        {
+            "type": "shell",
+            "label": "Open Teams Web Client",
+            "command": "node ${workspaceFolder}/open-browser.js . env/.env.local",
+            "options": {
+                "cwd": "${workspaceFolder}"
             }
         }
     ]
