@@ -11,16 +11,16 @@
         "termsOfUseUrl": "${{TAB_ENDPOINT}}/index.html#/termsofuse"
     },
     "icons": {
-        "color": "resources/color.png",
-        "outline": "resources/outline.png"
+        "color": "color.png",
+        "outline": "outline.png"
     },
     "name": {
-        "short": "${{TEAMS_APP_NAME}}",
-        "full": "Full name for ssoTab01"
+        "short": "sso-tab-v5-${{TEAMSFX_ENV}}",
+        "full": "Full name for sso-tab-v5"
     },
     "description": {
-        "short": "Short description of ssoTab01",
-        "full": "Full description of ssoTab01"
+        "short": "Short description of sso-tab-v5",
+        "full": "Full description of sso-tab-v5"
     },
     "accentColor": "#FFFFFF",
     "bots": [],

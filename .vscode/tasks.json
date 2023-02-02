@@ -5,11 +5,9 @@
             "label": "Start Teams App Locally",
             "dependsOn": [
                 "Validate prerequisites",
-                "Setup port forwarding",
                 "Create resources",
-                "Install tools and Build project",
-                "Start services",
-                "Open Teams Web Client"
+                "Build project",
+                "Start application"
             ],
             "dependsOrder": "sequence"
         },
@@ -33,27 +31,21 @@
             "type": "teamsfx",
             "command": "provision",
             "args": {
-                "template": "${workspaceFolder}/teamsfx/app.local.yml",
+                "template": "${workspaceFolder}/teamsapp.local.yml",
                 "env": "local"
             }
         },
         {
-            "label": "Install tools and Build project",
+            "label": "Build project",
             "type": "teamsfx",
             "command": "deploy",
             "args": {
-                "template": "${workspaceFolder}/teamsfx/app.local.yml",
+                "template": "${workspaceFolder}/teamsapp.local.yml",
                 "env": "local"
             }
         },
         {
-            "label": "Setup port forwarding",
-            "type": "shell",
-            // Currently hardcoded to 53000. It is possible to dynamically retrieve it from config file in VSC extension
-            "command": "gh codespace ports visibility 53000:public -c $CODESPACE_NAME"
-        },
-        {
-            "label": "Start services",
+            "label": "Start application",
             "dependsOn": [
                 "Start frontend"
             ]
@@ -78,14 +70,6 @@
                     "beginsPattern": ".*",
                     "endsPattern": "Compiled|Failed|compiled|failed"
                 }
-            }
-        },
-        {
-            "type": "shell",
-            "label": "Open Teams Web Client",
-            "command": "node ${workspaceFolder}/teamsfx/script/open-browser.js . teamsfx/.env.local",
-            "options": {
-                "cwd": "${workspaceFolder}"
             }
         }
     ]

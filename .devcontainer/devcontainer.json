@@ -15,7 +15,7 @@
 
 	// Set feature flag to use TeamsFx v3
 	"remoteEnv": {
-		"TEAMSFX_V3": "true"
+		"TEAMSFX_PREVIEW": "true"
 	},
 
 	"remoteUser": "docker",

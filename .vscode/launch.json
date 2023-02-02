@@ -2,24 +2,13 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Preview in Codespapces",
-            "type": "pwa-node",
-            "request": "launch",
-            "restart": true,
-            "preLaunchTask": "Start Teams App Locally",
-            "presentation": {
-                "group": "all",
-                "order": 1
-            }
-        },
-        {
             "name": "Launch Remote (Edge)",
             "type": "pwa-msedge",
             "request": "launch",
             "url": "https://teams.microsoft.com/l/app/${dev:teamsAppId}?installAppPackage=true&webjoin=true&${account-hint}",
             "presentation": {
                 "group": "remote",
-                "order": 2
+                "order": 1
             },
             "internalConsoleOptions": "neverOpen"
         },
@@ -30,7 +19,7 @@
             "url": "https://teams.microsoft.com/l/app/${dev:teamsAppId}?installAppPackage=true&webjoin=true&${account-hint}",
             "presentation": {
                 "group": "remote",
-                "order": 3
+                "order": 2
             },
             "internalConsoleOptions": "neverOpen"
         },
