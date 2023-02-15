@@ -3,12 +3,12 @@
 {
 	"name": "tab-codespaces",
 
-	// Sets the run context to one level up instead of the .devcontainer folder.
-	"context": "..",
-
 	// Update the 'dockerFile' property if you aren't using the standard 'Dockerfile' filename.
 	// "dockerFile": "../Dockerfile",
 	"image": "aochengwangmsft/teams-toolkit-bot:v2",
+	// "build": { 
+	// 	"dockerfile": "Dockerfile"
+	// },
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [53000],
@@ -20,9 +20,17 @@
 	},
 
 	"remoteUser": "docker",
-	"extensions": [
-		//"TeamsDevApp.ms-teams-vscode-extension"
-		// Will use the official extension when toolkit v5 release to marketplace
-		"/workspaces/tab-codespaces/.devcontainer/ms-teams-vscode-extension-4.99.2023020200.vsix"
-	]
+
+	// Set feature flag to use TeamsFx v5, will be cleaned up once TeamsFx v5 is released
+	"remoteEnv": {
+		"TEAMSFX_V3": "true"
+	},
+
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"TeamsDevApp.ms-teams-vscode-extension"
+			]
+		}
+	}
 }
