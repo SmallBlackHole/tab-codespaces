@@ -2,16 +2,6 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Start Teams App Locally",
-            "dependsOn": [
-                "Validate prerequisites",
-                "Create resources",
-                "Build project",
-                "Start application"
-            ],
-            "dependsOrder": "sequence"
-        },
-        {
             "label": "Start Teams App in Codespaces",
             "dependsOn": [
                 "Validate prerequisites",
@@ -96,6 +86,27 @@
             "options": {
                 "cwd": "${workspaceFolder}"
             }
+        },
+        {
+            "type": "shell",
+            "label": "Open Teams Web Client (dev)",
+            "command": "node ${workspaceFolder}/open-browser.js . env/.env.dev",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "Stop All",
+            "type": "shell",
+            "command": "echo ${input:terminate}"
+        },
+    ],
+    "inputs": [
+        {
+            "id": "terminate",
+            "type": "command",
+            "command": "workbench.action.tasks.terminate",
+            "args": "terminateAll"
         }
     ]
 }
