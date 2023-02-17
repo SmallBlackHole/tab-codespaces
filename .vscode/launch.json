@@ -9,19 +9,19 @@
             "postDebugTask": "Stop All",
             "presentation": {
                 "group": "all",
-                "order": 0
+                "order": 1
             },
             "internalConsoleOptions": "neverOpen"
         },
         {
-            "name": "Launch Remote (dev)",
+            "name": "Launch Remote in Codespaces (dev)",
             "type": "node",
             "request": "launch",
             "preLaunchTask": "Open Teams Web Client (dev)",
             "postDebugTask": "Stop All",
             "presentation": {
-                "group": "all",
-                "order": 0
+                "group": "remote",
+                "order": 1
             },
             "internalConsoleOptions": "neverOpen"
         }
